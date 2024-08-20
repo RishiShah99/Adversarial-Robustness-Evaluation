@@ -1,57 +1,68 @@
-# ImageNet100 ResNet18 PGD Attacks
+# Adversarial Robustness Evaluation
 
-This repository contains the implementation of a ResNet18 model to classify images in the ImageNet100 dataset and an analysis of its robustness using Projected Gradient Descent (PGD) attacks.
+This repository contains a comprehensive evaluation of three models under adversarial attacks: **ImageNet100**, **MNIST**, and **CORNet-S**. The primary focus is to assess the robustness of these models against two widely recognized adversarial attacks: **Projected Gradient Descent (PGD)** and **Carlini & Wagner (CW)**.
 
-## Table of Contents
+## Contents
 
-- [Project Description](#project-description)
-- [Dataset](#dataset)
-- [Model Architecture](#model-architecture)
-- [Adversarial Attacks](#adversarial-attacks)
-- [Results](#results)
-- [Modules](#modules)
-- [Usage](#usage)
-  
-## Project Description
+- **ImageNet100 Model**
+  - Top-1 and Top-5 Accuracy
+  - PGD Attack Accuracy
+  - CW Attack Accuracy
 
-The goal of this project is to develop a ResNet18 model to classify images from the ImageNet100 dataset and evaluate its robustness against adversarial attacks using PGD. 
+- **MNIST Model**
+  - Top-1 and Top-5 Accuracy
+  - PGD Attack Accuracy
+  - CW Attack Accuracy
 
-## Dataset
+- **CORNet-S Model**
+  - Top-1 and Top-5 Accuracy
+  - PGD Attack Accuracy
+  - CW Attack Accuracy
 
-The ImageNet100 dataset is a subset of the larger ImageNet dataset, containing images from 100 different classes. It is commonly used for benchmarking image classification models due to its manageable size and diverse classes. In total, it has about 127 000 images inside of the dataset with 100 different classes. 
+## Model Descriptions
 
-## Model Architecture
+### 1. ImageNet100 Model
+This model is trained on a subset of the ImageNet dataset, containing 100 classes. The evaluation focuses on:
+- **Top-1 Accuracy:** 73%
+- **Top-5 Accuracy:** 94%
+- **PGD Attack Accuracy:** 10%
+- **CW Attack Accuracy:** 15%
 
-The model used in this project is a ResNet18, a well-known convolutional neural network architecture designed for image classification tasks. ResNet18 utilizes residual connections to allow for deeper networks and improved performance.
+### 2. MNIST Model
+This model is trained on the MNIST dataset, which consists of 28x28 grayscale images of handwritten digits. The evaluation focuses on:
+- **Top-1 Accuracy:** 99%
+- **Top-5 Accuracy:** 99.43%
+- **PGD Attack Accuracy:** 35%
+- **CW Attack Accuracy:** 70%
+
+### 3. CORNet-S Model
+The CORNet-S model is a specialized neural network designed for robust object recognition. The evaluation focuses on:
+- **Top-1 Accuracy:** 70%
+- **Top-5 Accuracy:** 89%
+- **PGD Attack Accuracy:** 40%
+- **CW Attack Accuracy:** 50%
 
 ## Adversarial Attacks
 
-This project includes the implementation of Projected Gradient Descent (PGD) attacks to test the robustness of the ResNet18 model. PGD is a widely used adversarial attack method that iteratively perturbs the input images to maximize the model's prediction error.
+### Projected Gradient Descent (PGD)
+PGD is one of the most effective adversarial attacks. It iteratively perturbs the input images with small, adversarially chosen noise, aiming to maximize the model's loss.
 
-## Results
+### Carlini & Wagner (CW) Attack
+CW attack is a more sophisticated adversarial attack designed to minimize the perturbation while still fooling the model, often resulting in adversarial examples that are nearly indistinguishable from the original inputs.
 
-The model had a 95% top-5 accuracy and a 82% top-1 accuracy. 
+## How to Run the Models
 
-## Modules
+Each model is provided in a separate directory within this repository. The models can be evaluated using the provided scripts. Below are the instructions for running the evaluation:
 
-To run the code, you need the following modules:
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/RishiShah99/Adversarial-Robustness-Evaluation.git
+   ```
+2. Navigate to the desired model's directory:
+   ```bash
+   cd Adversarial-Robustness-Evaluation/ImageNet100
+   ```
+3. Run any of the scripts.
 
-```bash
-# Install the required modules using pip
-pip install json
-pip install matplotlib
-pip install random
-pip install cv2
-pip install torch
-pip install torchvision
-pip install PIL
-pip install tqdm
-pip install torchattacks
-```
-
-## Usage
-Clone the repository and navigate to the project directory: 
-```bash
-git clone https://github.com/RishiShah99/imagenet100-resnet18-pgd-attacks.git
-cd imagenet100-resnet18-pgd-attacks
-```
+## Conclusion: 
+This repository aims to provide insights into the adversarial robustness of various models. The results from the evaluations can be used as a benchmark for future improvements in model robustness.
